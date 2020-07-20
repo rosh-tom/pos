@@ -1,11 +1,9 @@
- <div id="products">
-<?php include 'modals/products.php'; ?> 
 
-    <div class="container-fluid">
+<div class="container-fluid">
         <!-- PAGE HEADER -->
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">{{ pageHeader }}</h1>
+                <h1 class="page-header primary"><i class="fas fa-scroll"></i> {{ pageHeader }} </h1>
             </div>                     
         </div>
         <!-- /.row -->
@@ -55,43 +53,4 @@
         <!-- /.row       -->
     </div> 
     <!-- /.container-fluid --> 
-</div>
-<!-- /#products  -->
 
-<?php include 'links/footer.php'; ?>
-<script src="../node_modules/axios/dist/axios.min.js"></script>
-
-<script>
-    var products = new Vue({
-        el: "#products",
-        data: {
-            pageHeader: "Products",
-            categoryList: '',
-            mdl_category: false,
-            mdl_addProduct: false,
-            mdl_supplier: false
-        },
-        methods:{
-            fetchAllCategory: function(){
-                axios.post('actions/products.php', {
-                    action: 'fetchAllCategory'
-                }).then(function(response){
-                    products.categoryList = response.data;
-                });
-            },
-            open_mdl_category: function(){
-                products.mdl_category = true;
-            },
-            open_mdl_addProduct: function(){
-                products.mdl_addProduct = true;
-            },
-            open_mdl_supplier: function(){
-                products.mdl_supplier = true;
-            }
-
-        },
-        created: function(){
-            this.fetchAllCategory();
-        }
-    })
-</script>

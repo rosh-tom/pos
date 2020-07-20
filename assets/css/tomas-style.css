@@ -17,4 +17,44 @@
     height: 150px;
 }
 
- 
+/* Padding Top*/
+.pt-5{
+    padding-top: 5px;
+}
+.pt-10{
+    padding-top: 10px;
+}
+
+/* Padding Bottom  */
+.pb-5{
+    padding-bottom: 5px;
+}
+.pb-10{
+    padding-bottom: 10px;
+}
+
+
+/* Colors */
+.primary{
+    color: #337ab7;
+}
+.success{
+    color: #5cb85c;
+}
+.info{
+    color: #5bc0de;    
+}
+.warning{
+    color: 	#f0ad4e;
+}
+.danger{
+    color: #d9534f
+}
+
+/* Border-Colors */
+.border-primary{
+    border-color: #337ab7;
+}
+.border-primary{
+    border-color: #337ab7;
+}

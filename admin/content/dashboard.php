@@ -1,7 +1,4 @@
-
-    <title> Tomas - Dashboard </title> 
-
-<div id="dashboard">
+ <div id="dashboard">
 
     <div class="container-fluid">
 

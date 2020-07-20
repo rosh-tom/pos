@@ -7,7 +7,7 @@
 
 					<div class="modal-header">
 						<button type="button" class="close" @click="mdl_addProduct=false"> &times;</button>
-						<h4 class="modal-title">Add New Product</h4>
+						<h3 class="modal-title primary"><i class="fas fa-plus-circle"></i> Add New Product</h3>
 					</div>
 					<!-- /.modal-header  -->
 					<div class="modal-body">
@@ -38,10 +38,10 @@
   								<label for="">Category: </label>
   								<div class="form-group input-group">								 
 									<select class="form-control">								 
-  										<option value=""></option>
+  										<option :value="row.id" v-for="row in categoryList">{{ row.product_category }}</option>
 									</select>														
 									<span class="input-group-btn">
-										<button class="btn btn-default" type="button"><i class="fa fa-plus"></i>
+										<button class="btn btn-default" type="button" @click="open_mdl_category"><i class="fa fa-plus"></i>
 										</button>
 									</span>	
 								</div>						 			
@@ -101,8 +101,7 @@
 	<!-- /.modal-mask  -->
 </div>
 
-
- <!-- ================================================ mdl_category =======================================================  -->
+<!-- ================================================ mdl_category =======================================================  -->
 <div v-if="mdl_category"> 
 	<div class="modal-mask">
 		<div class="modal-wrapper">	
@@ -110,26 +109,36 @@
 				<div class="modal-content">
 
 					<div class="modal-header">
-						<button type="button" class="close" @click="mdl_category=false"> &times;</button>
-						<h4 class="modal-title">Product Category</h4>
+						<button type="button" class="close" @click="close_mdl_category"> &times;</button>
+						<h3 class="modal-title primary"><i class="fas fa-layer-group"></i> Product Category</h3>
 					</div>
 					<!-- /.modal-header  -->
 					<div class="modal-body">
 
 						<div class="row">
 							<div class="col-sm-12">
+								<div class="alert alert-success alert-dismissible pt-5 pb-5" role="alert" v-if="cat_successAlert">
+									<button type="button" class="close" @click="cat_successAlert=false"><span aria-hidden="true">&times;</span></button>
+								{{ cat_message }}
+								</div>
+								<div class="alert alert-danger alert-dismissible pt-5 pb-5" role="alert" v-if="cat_dangerAlert">
+									<button type="button" class="close" @click="close_cat_dangerAlert"><span aria-hidden="true">&times;</span></button>
+								{{ cat_message }}
+								</div>								
+							</div>
+
+							<div class="col-sm-12">
 								<label>Add New Category: </label>
 								<div class="form-group input-group">
-									<input type="text" class="form-control">
+									<input type="text" class="form-control" v-model="txtbx_addCategory" v-on:keyup.enter="add_category">
 									<span class="input-group-btn">
-										<button class="btn btn-primary"><i class="fa fa-plus"></i> Add </button>
+										<button class="btn btn-primary" @click="add_category"><i class="fa fa-plus"></i> Add </button>
 									</span>
                             	</div>	
 							</div>
 						</div>
 						<!-- /.row   -->
-						<hr>				
-  						
+  						<hr class="mt-10">
 						<div class="row"> 	
 							<div class="col-lg-6">
 								<div class="input-group custom-search-form">
@@ -153,7 +162,7 @@
 										<tbody>  
 											<tr v-for="row in categoryList">                                                    
 												<td>{{ row.product_category }}</td> 
-												<th><button type="button" class="btn btn-danger btn-xs">DELETE</button></th>                                                    
+												<th><button type="button" class="btn btn-danger btn-xs" @click="del_category(row.id)">DELETE</button></th>                                                    
 											</tr>                                      
 										</tbody>
 									</table>
@@ -175,7 +184,6 @@
 </div>
 
  <!-- ================================================ mdl_supplier =======================================================  -->
-
  <div v-if="mdl_supplier">
  	<div class="modal-mask">
 		<div class="modal-wrapper">	
@@ -184,7 +192,7 @@
 
 					<div class="modal-header">
 						<button type="button" class="close" @click="mdl_supplier=false"> &times;</button>
-						<h4 class="modal-title">Supplier</h4>
+						<h3 class="modal-title primary">Supplier</h3>
 					</div>
 					<!-- /.modal-header  -->
 					<div class="modal-body">
@@ -201,8 +209,8 @@
 							</div>
 						</div>
 						<!-- /.row   -->
-						<hr>				
-  						
+						<hr class="mt-10">				
+  						 					 
 						<div class="row"> 	
 							<div class="col-lg-6">
 								<div class="input-group custom-search-form">
@@ -261,7 +269,8 @@
 								</div>										
 							</div>	
 						</div>
-					<!-- /.row -->
+						<!-- /.row -->
+						
 
 					</div>
 					<!-- /.modal-body  -->
