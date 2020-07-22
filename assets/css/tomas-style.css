@@ -1,5 +1,8 @@
   
 /* Margins top*/
+.mt-10n{
+    margin-top: -10px;
+}
 .mt-5{
     margin-top: 5px;
 }
@@ -31,6 +34,11 @@
 }
 .pb-10{
     padding-bottom: 10px;
+}
+
+/* Flaot Right  */
+.fr{
+    float: right;
 }
 
 

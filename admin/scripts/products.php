@@ -20,6 +20,13 @@
                     products.categoryList = response.data;
                 });
             },
+            fetchAllSupplier: function(){
+                axios.post('actions/products.php', {
+                    action: 'fetchAllSupplier'
+                }).then(function(response){
+                    products.supplierList = response.data;
+                });
+            },
             // ADD 
             add_category: function(){
                 if(products.txtbx_addCategory == ''){
@@ -98,6 +105,7 @@
         },
         created: function(){
             this.fetchAllCategory();
+            this.fetchAllSupplier();
         }
     })
 </script>

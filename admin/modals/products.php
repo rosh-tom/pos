@@ -13,7 +13,7 @@
 					<div class="modal-body">
 
 						<div class="row">
-							<div class="col-sm-6 mt-10">
+							<div class="col-sm-6">
 								<label>Barcode: </label>
 								<input type="text" class="form-control">						 								 
 							</div>	
@@ -197,18 +197,19 @@
 					<!-- /.modal-header  -->
 					<div class="modal-body">
 
-						<div class="row">
+						<div class="row">							 
 							<div class="col-sm-12">
-								<label>Add New Supplier: </label>
+								<label>Company Name: </label>
 								<div class="form-group input-group">
 									<input type="text" class="form-control">
 									<span class="input-group-btn">
 										<button class="btn btn-primary"><i class="fa fa-plus"></i> Add </button>
 									</span>
                             	</div>	
-							</div>
+							</div>						 
 						</div>
 						<!-- /.row   -->
+
 						<hr class="mt-10">				
   						 					 
 						<div class="row"> 	
@@ -227,43 +228,15 @@
 									<table class="table">
 										<thead>
 											<tr>                                                    
-												<th>Supplier Name</th> 
+												<th>Company Name</th> 
 												<th>Action</th>                                                    
 											</tr>
 										</thead>
 										<tbody>                                                
-											<tr>                                                    
-												<td>fdsfsd</td> 
+											<tr v-for="row in supplierList">                                                    
+												<td>{{ row.product_supplier }}</td> 
 												<th><button type="button" class="btn btn-danger btn-xs">DELETE</button></th>                                                    
-											</tr>  
-											<tr>                                                    
-												<td>fdsfsd</td> 
-												<th><button type="button" class="btn btn-danger btn-xs">DELETE</button></th>                                                    
-											</tr>      
-											<tr>                                                    
-												<td>fdsfsd</td> 
-												<th><button type="button" class="btn btn-danger btn-xs">DELETE</button></th>                                                    
-											</tr>  
-											<tr>                                                    
-												<td>fdsfsd</td> 
-												<th><button type="button" class="btn btn-danger btn-xs">DELETE</button></th>                                                    
-											</tr>       
-											<tr>                                                    
-												<td>fdsfsd</td> 
-												<th><button type="button" class="btn btn-danger btn-xs">DELETE</button></th>                                                    
-											</tr>  
-											<tr>                                                    
-												<td>fdsfsd</td> 
-												<th><button type="button" class="btn btn-danger btn-xs">DELETE</button></th>                                                    
-											</tr>      
-											<tr>                                                    
-												<td>fdsfsd</td> 
-												<th><button type="button" class="btn btn-danger btn-xs">DELETE</button></th>                                                    
-											</tr>  
-											<tr>                                                    
-												<td>fdsfsd</td> 
-												<th><button type="button" class="btn btn-danger btn-xs">DELETE</button></th>                                                    
-											</tr>                                      
+											</tr>  											 
 										</tbody>
 									</table>
 								</div>										

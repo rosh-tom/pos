@@ -1,5 +1,5 @@
 <?php
-    include '../../database/connection.php';
+    require '../../database/connection.php';
 
     $received_data = json_decode(file_get_contents("php://input"));
     $data = array();
@@ -48,6 +48,15 @@
                 );
             }
             echo json_encode($output);
+        }elseif ($received_data -> action == 'fetchAllSupplier') {
+            $sql_query = "select * from tbl_product_supplier order by id desc";
+            $statement = $connection -> prepare($sql_query);
+            $statement -> execute();
+            while ($row = $statement -> fetch(PDO::FETCH_ASSOC)) {
+                $data[] = $row;
+            }
+            echo json_encode($data);
+
         }
          
     }else{

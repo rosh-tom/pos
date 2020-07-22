@@ -23,7 +23,8 @@
 </html>
 
 <?php include 'links/footer.php'; ?>
-<?php include 'scripts/products.php'; ?>
+<?php include 'scripts/products.php'; ?> 
+<!-- <script src="scripts/serv_poducts.js"></script>  -->
 
 
 
